@@ -1,0 +1,32 @@
+use('teste');
+
+
+db.createCollection("alunos")
+
+db.getCollection("alunos").insertOne({
+    _id:1,
+    nome:"Kauã",
+    idade:18,
+    nota: 10,
+    cidade:"navirai"
+  })
+
+  db.getCollection("alunos").insertOne({
+    nome:"Kaua",
+    idade:18,
+    nota: 7,
+    cidade:"sao paulo"
+  })
+
+
+  use("teste")
+  db.alunos.find(
+    {"$and":[ {"cidade":"sao paulo"},
+              {"idade":{"$gt":18}},
+              {"nota":{"$gte": 7}}]}).pretty()
+
+
+
+  db.trabalhos.find({area:"Biológicas"}).pretty()
+
+
